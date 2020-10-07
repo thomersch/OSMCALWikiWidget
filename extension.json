@@ -1,0 +1,16 @@
+{
+	"name": "OSMCAL Wiki Widget",
+	"author": "Thomas Skowron",
+	"url": "https://github.com/thomersch/openstreetmap-calendar",
+	"description": "",
+	"version": "0.1",
+	"license-name": "Apache-2.0",
+	"type": "variable",
+	"AutoloadClasses": {
+		"OSMCALWikiWidget": "includes/OSMCALWidget.php"
+	},
+	"Hooks": {
+		"ParserFirstCallInit": "OSMCALWidget::onParserFirstCallInit"
+	},
+	"manifest_version": 2
+}
