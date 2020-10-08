@@ -6,8 +6,6 @@ class OSMCALWidget {
 	}
 
 	public static function renderCalendar( $input, array $args, Parser $parser, PPFrame $frame ) {
-		$parser->disableCache();
-
 		$lang = "";
 		if (array_key_exists('lang', $args)) {
 			$lang = $args['lang'];
