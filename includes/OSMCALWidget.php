@@ -20,10 +20,15 @@ class OSMCALWidget {
 			$req_params = "?in=".$args['in'];
 		}
 
+		$banner = true;
+		if (array_key_exists('nobanner', $args)) {
+			$banner = false;
+		}
+
 		$req_opts = [
 			"http" => [
 				"method" => "GET",
-				"header" => "Accept-Language: ".$lang."\r\nClient-App: OSM Wiki"
+				"header" => "Accept-Language: ".$lang."\r\nClient-App: Wiki Widget"
 			]
 		];
 
@@ -34,13 +39,15 @@ class OSMCALWidget {
 
 		$obj = json_decode($json);
 
-		$out = '<table>';
+		$out = '<table class="osmcal-event-table">';
 		foreach ($obj as $key => $evt) {
 			$out .= self::renderEvent($evt);
 		}
 		$out .= '</table>';
 
-		$out .= "<div><a href='https://osmcal.org'><img src='https://osmcal.org/static/osmcal/favicon.png' alt='OSMCAL' width='32' height='32'> Add your event to OpenStreetMap Calendar</div></a>";
+		if ($banner) {
+			$out .= '<div class="osmcal-banner"><a href="https://osmcal.org"><img src="https://osmcal.org/static/osmcal/favicon.png" alt="OSMCAL Logo" width="24" height="24"> Add your event to OpenStreetMap Calendar</div></a>';
+		}
 		return $out;
 	}
 
