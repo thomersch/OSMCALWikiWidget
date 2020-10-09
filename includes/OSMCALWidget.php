@@ -44,7 +44,7 @@ class OSMCALWidget {
 		$out .= '</table>';
 
 		if ($banner) {
-			$out .= '<div class="osmcal-banner"><a href="https://osmcal.org"><img src="https://osmcal.org/static/osmcal/favicon.png" alt="OSMCAL Logo" width="24" height="24"> Add your event to OpenStreetMap Calendar</div></a>';
+			$out .= '<div class="osmcal-banner"><a href="https://osmcal.org"><img src="/extensions/OSMCALWikiWidget/resources/osmcal-icon.png" alt="OSMCAL Logo" width="24" height="24"> Add your event to OpenStreetMap Calendar</div></a>';
 		}
 		return $out;
 	}
