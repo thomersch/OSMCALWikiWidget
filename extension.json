@@ -2,10 +2,10 @@
 	"name": "OSMCAL Wiki Widget",
 	"author": "Thomas Skowron",
 	"url": "https://github.com/thomersch/OSMCALWikiWidget",
-	"description": "",
+	"description": "Display OpenStreetMap's events from [//osmcal.org osmcal.org]",
 	"version": "0.1",
 	"license-name": "Apache-2.0",
-	"type": "variable",
+	"type": "parserhook",
 	"AutoloadClasses": {
 		"OSMCALWidget": "includes/OSMCALWidget.php"
 	},
