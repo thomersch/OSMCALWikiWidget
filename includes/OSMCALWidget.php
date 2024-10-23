@@ -22,12 +22,18 @@ class OSMCALWidget {
 		if (array_key_exists('nobanner', $args)) {
 			$banner = false;
 		}
+    
 		// parameter for limiting how many events get shown
 		$limit = null;
 		if (array_key_exists('limit', $args)) {
 			$limit = intval($args['limit']); // Conversion into integer
 		}
-		
+
+		// Parameter around=<lat>,<lon>
+		if (array_key_exists('around', $args)) {
+			$req_params = "?around=".$args['around'];
+		}
+
 		$req_opts = [
 			"http" => [
 				"method" => "GET",
