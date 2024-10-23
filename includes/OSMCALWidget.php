@@ -23,6 +23,7 @@ class OSMCALWidget {
 			$banner = false;
 		}
 
+		// Parameter around=<lat>,<lon>
 		if (array_key_exists('around', $args)) {
 			$req_params = "?around=".$args['around'];
 		}
