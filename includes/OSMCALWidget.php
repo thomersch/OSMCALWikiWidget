@@ -23,6 +23,10 @@ class OSMCALWidget {
 			$banner = false;
 		}
 
+		if (array_key_exists('around', $args)) {
+			$req_params = "?around=".$args['around'];
+		}
+
 		$req_opts = [
 			"http" => [
 				"method" => "GET",
