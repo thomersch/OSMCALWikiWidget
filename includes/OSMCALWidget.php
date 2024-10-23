@@ -22,6 +22,12 @@ class OSMCALWidget {
 		if (array_key_exists('nobanner', $args)) {
 			$banner = false;
 		}
+    
+		// parameter for limiting how many events get shown
+		$limit = null;
+		if (array_key_exists('limit', $args)) {
+			$limit = intval($args['limit']); // Conversion into integer
+		}
 
 		// Parameter around=<lat>,<lon>
 		if (array_key_exists('around', $args)) {
@@ -43,8 +49,14 @@ class OSMCALWidget {
 		$obj = json_decode($json);
 
 		$out = '<table class="osmcal-event-table">';
+		$counter = 0; // Counter for calendar-entries
 		foreach ($obj as $key => $evt) {
+			// Check if the calendar-entries-limit is reached
+			if ($limit !== null && $counter >= $limit) {
+				break;
+			}
 			$out .= self::renderEvent($evt);
+			$counter++; // Increase counter for calendar-entries
 		}
 		$out .= '</table>';
 
